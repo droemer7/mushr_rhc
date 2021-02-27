@@ -1,9 +1,9 @@
 
 <launch>
-    <arg name="out_path" />
-    <arg name="trial_name" />
+    <arg name="out_path"/>
+    <arg name="trial_name"/>
 
-    <rosparam command="dump" file="$(arg out_path)/$(arg trial_name)-params.yaml" />
+    <rosparam command="dump" file="$(arg out_path)/$(arg trial_name)-params.yaml"/>
 
     <node pkg="rosbag" type="record" name="debug_recorder"
         args="record -O $(arg out_path)/$(arg trial_name).bag
@@ -13,5 +13,5 @@
         /pf/viz/laserpose
         /pf/viz/particles
         /rhcontroller/traj_chosen
-        /scan" />
+        /scan"/>
 </launch>

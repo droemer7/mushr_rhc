@@ -1,12 +1,12 @@
 
 <launch>
-    <arg name="out_path" />
-    <arg name="trial_name" />
+    <arg name="out_path"/>
+    <arg name="trial_name"/>
 
-    <rosparam command="dump" file="$(arg out_path)/$(arg trial_name)-params.yaml" />
+    <rosparam command="dump" file="$(arg out_path)/$(arg trial_name)-params.yaml"/>
 
     <node pkg="topic_tools" type="throttle" name="camera_throttle"
-        args="messages /camera/color/image_raw 5 /debug_camera" />
+        args="messages /camera/color/image_raw 5 /debug_camera"/>
 
     <node pkg="rosbag" type="record" name="debug_recorder"
         args="record -O $(arg out_path)/$(arg trial_name).bag
@@ -17,5 +17,5 @@
         /pf/viz/particles
         /rhcontroller/traj_chosen
         /scan
-        /debug_camera" />
+        /debug_camera"/>
 </launch>
